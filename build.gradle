@@ -41,7 +41,7 @@ tasks {
 
     jar {
         from("LICENSE") {
-            rename { "${it}_${project.base.archivesBaseName}" }
+            rename { "${it}_${project.base.archivesName}" }
         }
     }
 
