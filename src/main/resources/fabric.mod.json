@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "id": "meteor-chinese",
+  "id": "meteor-zh-cn-addon",
   "version": "${version}",
-  "name": "meteor-chinese",
-  "description": "为 meteor客户端 提供中文支持",
+  "name": "Meteor ZH_CN Addon",
+  "description": "为 meteor client 提供中文支持 并且持续跟进 新版本meteor client",
   "authors": [
     "Nippaku Zanmu",
     "xingke",
     "EnderPhantomWing"
   ],
   "contact": {
-    "repo": "https://github.com/xingke0/meteor_chinese"
+    "repo": "https://github.com/EnderChannel/meteor-zh-cn-addon"
   },
-  "icon": "assets/template/icon.png",
+  "icon": "assets/meteor-translation-addon/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
@@ -26,8 +26,8 @@
     "meteor-client:color": "231,25,25"
   },
   "depends": {
-    "java": ">=17",
-    "minecraft": [">=1.21"],
+    "java": ">=21",
+    "minecraft": [">=1.21.9"],
     "meteor-client": "*"
   }
 }
