@@ -2,22 +2,29 @@ name: Publish Development Build
 on: push
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-      - name: Wrapper Validation
-        uses: gradle/actions/wrapper-validation@v3
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: adopt
-      - name: Build with Gradle
-        run: ./gradlew build
-      - name: Upload
-        uses: actions/upload-artifact@v4
-        with:
-          path: |
-            ./build/libs/*.jar
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            - name: Read Properties
+              id: 'properties'
+              uses: christian-draeger/read-properties@1.1.1
+              with:
+                  path: gradle.properties
+                  properties: 'mod_id archives_base_name'
+            - name: Wrapper Validation
+              uses: gradle/actions/wrapper-validation@v3
+            - name: Set up Java
+              uses: actions/setup-java@v4
+              with:
+                  java-version: 21
+                  distribution: adopt
+            - name: Build with Gradle
+              run: ./gradlew build
+            - name: Upload
+              uses: actions/upload-artifact@v4
+              with:
+                  name: "${{ steps.properties.outputs.archives_base_name }} ${{ steps.properties.outputs.mod_version }}"
+                  path: |
+                      ./build/libs/*.jar
