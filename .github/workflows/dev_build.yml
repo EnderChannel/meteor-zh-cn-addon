@@ -16,12 +16,8 @@ jobs:
           distribution: adopt
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
+      - name: Upload
+        uses: action/upload-artifact@v4
         with:
-          repo_token: '${{ secrets.TOKEN }}'
-          automatic_release_tag: latest
-          prerelease: true
-          title: Dev Build
-          files: |
+          path: |
             ./build/libs/*.jar
