@@ -12,7 +12,7 @@ jobs:
               uses: christian-draeger/read-properties@1.1.1
               with:
                   path: gradle.properties
-                  properties: 'mod_id archives_base_name'
+                  properties: 'mod_version archives_base_name'
             - name: Wrapper Validation
               uses: gradle/actions/wrapper-validation@v3
             - name: Set up Java
